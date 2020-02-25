@@ -15,3 +15,9 @@ carMakers.push(100);
 carMakers.map((car: string): string => car);
 
 // They are flexible
+
+// it is inferred
+const importantDates = [new Date(), '11-5-86'];
+
+//it can be made explicit. Whatch the syntax
+const myDates: (Date | string)[] = [new Date(), '2-1-84'];
