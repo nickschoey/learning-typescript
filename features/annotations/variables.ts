@@ -42,4 +42,4 @@ const logNumber: (i: number) => void = i => {
 // Functions that return the 'any' type
 
 const json = '{"x": 10, "y": 20}';
-const coordinates = JSON.parse(json);
+const coordinates: { x: number; y: number } = JSON.parse(json);
