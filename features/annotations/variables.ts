@@ -51,3 +51,13 @@ let foundWord: boolean;
 for (let i = 0; i < words.length; i++) {
   if (words[i] === 'green') foundWord = true;
 }
+
+// Variables whose type cannot be inferred correctly
+let numbers = [-10, 20, 12];
+let numbersAboveZero: boolean | number = false;
+
+for (let i = 0; i < numbers.length; i++) {
+  if (numbers[i] > 0) {
+    numbersAboveZero = numbers[i];
+  }
+}
