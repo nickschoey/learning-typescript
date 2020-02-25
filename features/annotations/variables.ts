@@ -61,3 +61,14 @@ for (let i = 0; i < numbers.length; i++) {
     numbersAboveZero = numbers[i];
   }
 }
+
+// annotations on functions
+
+const add = (a: number, b: number): number => {
+  return a + b;
+};
+
+// return value gets inferred
+const addInfered = (a: number, b: number) => {
+  return a + b;
+};
