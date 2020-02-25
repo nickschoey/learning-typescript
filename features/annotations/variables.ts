@@ -1,5 +1,5 @@
-let apples: number = 5;
-const peaches: number = true;
+let apples = 5;
+const peaches = true;
 
 apples = 'six';
 
