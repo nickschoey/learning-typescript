@@ -106,3 +106,22 @@ const logWeather = ({
   console.log(date);
   console.log(weather);
 };
+
+// Annotations and objects
+
+const profile = {
+  age: 20,
+  name: 'Alex',
+  coords: { lat: 0, lng: 15 },
+  setAge(newAge: number): void {
+    this.age = newAge;
+  }
+};
+
+const { age }: { age: number } = profile;
+
+const {
+  coords: { lat, lng }
+}: { coords: { lat: number; lng: number } } = profile;
+
+const { age: howOld, name: theName }: { age: number; name: string } = profile;
