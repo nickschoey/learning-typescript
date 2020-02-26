@@ -1,14 +1,25 @@
 class Vehicle {
-  drive(): void {
+  private drive(): void {
     console.log('vruum!!');
   }
 
-  honk(): void {
+  protected honk(): void {
     console.log('beep!');
+  }
+
+  startDrivingProcess(): void {
+    this.drive();
+    this.honk();
   }
 }
 
-class Car extends Vehicle {}
-const vehicle = new Vehicle();
+class Automobile extends Vehicle {
+  makeNoise(): void {
+    this.honk();
+  }
+}
 
-vehicle.drive();
+const vehicle = new Automobile();
+
+vehicle.startDrivingProcess();
+vehicle.makeNoise();
