@@ -1,5 +1,9 @@
-import { User } from './User';
-import { Company } from './Company';
+interface Placeable {
+  location: {
+    lat: number;
+    lng: number;
+  };
+}
 
 export class CustomMap {
   private googleMap: google.maps.Map;
@@ -11,7 +15,7 @@ export class CustomMap {
     });
   }
 
-  addMarker(placeable: User | Company): void {
+  addMarker(placeable: Placeable): void {
     new google.maps.Marker({
       map: this.googleMap,
       position: {
