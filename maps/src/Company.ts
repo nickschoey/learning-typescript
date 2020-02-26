@@ -1,6 +1,7 @@
 import faker from 'faker';
+import { Placeable } from './CustomMap';
 
-export class Company {
+export class Company implements Placeable {
   companyName: string;
   catchPhrase: string;
   location: {

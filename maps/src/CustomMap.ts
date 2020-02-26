@@ -1,4 +1,4 @@
-interface Placeable {
+export interface Placeable {
   location: {
     lat: number;
     lng: number;

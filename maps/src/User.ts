@@ -1,6 +1,7 @@
 import faker from 'faker';
+import { Placeable } from './CustomMap';
 
-export class User {
+export class User implements Placeable {
   name: string;
   location: {
     lat: number;
