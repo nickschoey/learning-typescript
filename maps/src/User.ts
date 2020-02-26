@@ -1,14 +1,11 @@
 import faker from 'faker';
 
-
 class User {
   name: string;
-  location: { 
-    lat: number; 
-    lng: number 
+  location: {
+    lat: number;
+    lng: number;
   };
-}
 
-constructor() {
-
+  constructor() {}
 }
