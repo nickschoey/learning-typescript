@@ -15,13 +15,18 @@ class Vehicle {
   }
 }
 
-// class Automobile extends Vehicle {
-//   makeNoise(): void {
-//     this.honk();
-//   }
-// }
+class Automobile extends Vehicle {
+  constructor(public wheels: number, color: string) {
+    super(color);
+  }
+  makeNoise(): void {
+    this.honk();
+  }
+}
 
 const vehicle = new Vehicle('orange');
 console.log(vehicle.color);
+
+const automobile = new Automobile(4, 'red');
 
 vehicle.startDrivingProcess();
