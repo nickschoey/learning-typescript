@@ -16,31 +16,3 @@ const array = [200, 1, 5, 2, 23, 322, 3, 5, 76, -1, 6, 64];
 // }
 
 // console.log(sort(array));
-
-class Sorter {
-  constructor(public collection: number[] | string) {}
-  sort(): void {
-    const { length } = this.collection;
-    for (let i = 0; i < length; i++) {
-      for (let j = 0; j < length - i - 1; j++) {
-        // if this.collection is array of numbers
-        if (this.collection instanceof Array) {
-          const left = this.collection[j];
-          const right = this.collection[j + 1];
-          if (left > right) {
-            this.collection[j] = right;
-            this.collection[j + 1] = left;
-          }
-        }
-        // if collection is string
-        if (typeof (this.collection === 'string')) {
-        }
-      }
-    }
-  }
-}
-
-const myArray = new Sorter(array);
-
-myArray.sort();
-console.log(myArray.collection);
