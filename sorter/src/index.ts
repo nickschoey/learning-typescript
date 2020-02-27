@@ -1,3 +1,6 @@
+import { Sorter } from './Sorter';
+import { NumbersCollection } from './NumbersCollection';
+
 const array = [200, 1, 5, 2, 23, 322, 3, 5, 76, -1, 6, 64];
 
 // my bubble sorting algorithm
@@ -16,3 +19,8 @@ const array = [200, 1, 5, 2, 23, 322, 3, 5, 76, -1, 6, 64];
 // }
 
 // console.log(sort(array));
+
+const sorter = new Sorter(new NumbersCollection(array));
+sorter.sort();
+
+console.log(sorter.collection);
