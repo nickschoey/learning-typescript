@@ -1,14 +1,12 @@
 import fs from 'fs';
 import { MatchResult } from './MatchResults';
 
-type MatchData = [Date, string, string, number, number, MatchResult, string];
-
-export abstract class CsvFileReader {
-  data: MatchData[] = [];
+export abstract class CsvFileReader<T> {
+  data: T[] = [];
 
   constructor(public filename: string) {}
 
-  abstract mapRow(row: string[]): MatchData;
+  abstract mapRow(row: string[]): T;
 
   read(): void {
     this.data = fs
@@ -20,3 +18,18 @@ export abstract class CsvFileReader {
       .map(this.mapRow);
   }
 }
+
+//EXAMPLE OF GENERICS
+class HoldAnything<TypeOfData> {
+  data: TypeOfData;
+}
+
+const holdNumber = new HoldAnything<number>();
+
+holdNumber.data = 1;
+holdNumber.data = 'potatoes';
+
+const holdString = new HoldAnything<string>();
+
+holdString.data = 'potatoes';
+holdString.data = 25;
