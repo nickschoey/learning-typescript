@@ -7,4 +7,14 @@ const matches = fs
     return row.split(',');
   });
 
-console.log(matches);
+let manUWins = 0;
+
+for (const match of matches) {
+  if (match[1] === 'Man United' && match[5] === 'H') {
+    manUWins++;
+  } else if (match[2] === 'Man United' && match[5] === 'A') {
+    manUWins++;
+  }
+}
+
+console.log(manUWins);
