@@ -1,8 +1,9 @@
 import { Sorter } from './Sorter';
 import { NumbersCollection } from './NumbersCollection';
+import { CharactersCollection } from './CharactersCollection';
 
 const array = [200, 1, 5, 2, 23, 322, 3, 5, 76, -1, 6, 64];
-
+const string = 'Jordi Martinez Zambrano';
 // my bubble sorting algorithm
 // function sort(array: number[]): number[] {
 //   for (let i = 0; i < array.length; i++) {
@@ -20,7 +21,7 @@ const array = [200, 1, 5, 2, 23, 322, 3, 5, 76, -1, 6, 64];
 
 // console.log(sort(array));
 
-const sorter = new Sorter(new NumbersCollection(array));
+const sorter = new Sorter(new CharactersCollection(string));
 sorter.sort();
 
 console.log(sorter.collection);
