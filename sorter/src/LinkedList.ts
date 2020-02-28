@@ -24,7 +24,7 @@ export class LinkedList {
     let count = 1;
     let pointer = this.head;
     while (pointer.next) {
-      length++;
+      count++;
       pointer = pointer.next;
     }
     return count;

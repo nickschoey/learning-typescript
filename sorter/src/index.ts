@@ -1,6 +1,7 @@
 import { Sorter } from './Sorter';
 import { NumbersCollection } from './NumbersCollection';
 import { CharactersCollection } from './CharactersCollection';
+import { LinkedList } from './LinkedList';
 
 const array = [200, 1, 5, 2, 23, 322, 3, 5, 76, -1, 6, 64];
 const string = 'Jordi Martinez Zambrano';
@@ -21,7 +22,21 @@ const string = 'Jordi Martinez Zambrano';
 
 // console.log(sort(array));
 
-const sorter = new Sorter(new CharactersCollection(string));
-sorter.sort();
+// Sorter for Stings
+const stringSorter = new Sorter(new CharactersCollection(string));
+stringSorter.sort();
 
-console.log(sorter.collection);
+console.log(stringSorter.collection);
+
+// SOrter for Linked List
+const liList = new LinkedList();
+liList.add(520);
+liList.add(-4);
+liList.add(35);
+liList.add(10000);
+liList.add(2);
+liList.add(246);
+
+const llSorter = new Sorter(liList);
+llSorter.sort();
+liList.print();
