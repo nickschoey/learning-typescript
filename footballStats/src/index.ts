@@ -9,12 +9,4 @@ const matchReader = new MatchReader(csvFileReader);
 matchReader.load();
 let manUWins = 0;
 
-for (const match of matchReader.matches) {
-  if (match[1] === 'Man United' && match[5] === MatchResult.HomeWin) {
-    manUWins++;
-  } else if (match[2] === 'Man United' && match[5] === MatchResult.AwayWin) {
-    manUWins++;
-  }
-}
-
 console.log(manUWins);
