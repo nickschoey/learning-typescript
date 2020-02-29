@@ -1,4 +1,5 @@
 interface UserProps {
+  id?: number;
   name?: string;
   age?: number;
 }
@@ -33,5 +34,5 @@ export class User {
       callback();
     });
   }
-  fetch(): Promise {}
+  fetch() {}
 }
