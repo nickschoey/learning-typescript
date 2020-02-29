@@ -1,11 +1,11 @@
 import fs from 'fs';
+import { dateStringToDate } from './utils';
+import { MatchResult } from './MatchResults';
 
-export abstract class CsvFileReader<T> {
-  data: T[] = [];
-
+type MatchData = [Date, string, string, number, number, MatchResult, string];
+export class CsvFileReader {
+  data: MatchData[] = [];
   constructor(public filename: string) {}
-
-  abstract mapRow(row: string[]): T;
 
   read(): void {
     this.data = fs
@@ -14,21 +14,18 @@ export abstract class CsvFileReader<T> {
       .map((row: string): string[] => {
         return row.split(',');
       })
-      .map(this.mapRow);
+      .map(
+        (match: string[]): MatchData => {
+          return [
+            dateStringToDate(match[0]),
+            match[1],
+            match[2],
+            parseInt(match[3]),
+            parseInt(match[4]),
+            match[5] as MatchResult,
+            match[6]
+          ];
+        }
+      );
   }
 }
-
-//EXAMPLE OF GENERICS
-class HoldAnything<TypeOfData> {
-  data: TypeOfData;
-}
-
-const holdNumber = new HoldAnything<number>();
-
-holdNumber.data = 1;
-holdNumber.data = 'potatoes';
-
-const holdString = new HoldAnything<string>();
-
-holdString.data = 'potatoes';
-holdString.data = 25;
