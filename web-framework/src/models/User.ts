@@ -1,6 +1,7 @@
 import { Eventing } from './Eventing';
 import { Sync } from './Sync';
 import { Attributes } from './Attributes';
+import { AxiosResponse } from 'axios';
 
 export interface UserProps {
   id?: number;
@@ -30,8 +31,19 @@ export class User {
     return this.attributes.get;
   }
 
-  set(update: UserProps) {
+  set(update: UserProps): void {
     this.attributes.set(update);
     this.events.trigger('change');
+  }
+
+  fetch(): void {
+    const id = this.get('id');
+    if (id) {
+      this.sync.fetch(id).then((res: AxiosResponse): void => {
+        this.set(res.data);
+      });
+    } else {
+      throw new Error('Cannot Fetch without an Id');
+    }
   }
 }
