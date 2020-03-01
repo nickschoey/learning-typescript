@@ -46,4 +46,16 @@ export class User {
       throw new Error('Cannot Fetch without an Id');
     }
   }
+
+  save(): void {
+    const data = this.attributes.getAll();
+    this.sync
+      .save(data)
+      .then((res: AxiosResponse): void => {
+        this.trigger('save');
+      })
+      .catch((): void => {
+        this.trigger('error');
+      });
+  }
 }
