@@ -1,8 +1,7 @@
-// a quick reminder on accessors
-class Person {
-  constructor(public firstName: string, public lastName: string) {}
+import { User } from './models/User';
 
-  get fullName(): string {
-    return `${this.firstName} ${this.lastName}`;
-  }
-}
+const user = new User({ name: 'Gio', age: 22 });
+
+user.on('change', () => {
+  console.log('hey!');
+});
