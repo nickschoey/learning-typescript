@@ -1,5 +1,8 @@
-import { User } from './models/User';
+// a quick reminder on accessors
+class Person {
+  constructor(public firstName: string, public lastName: string) {}
 
-const user = new User({ name: 'Ronaldinho', age: 25 });
-
-user.save();
+  get fullName(): string {
+    return `${this.firstName} ${this.lastName}`;
+  }
+}
