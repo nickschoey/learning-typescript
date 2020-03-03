@@ -40,6 +40,10 @@ router.get('/login', (req: Request, res: Response): void => {
   </form>
   `);
 });
+router.get('/logout', (req: Request, res: Response): void => {
+  req.session = undefined;
+  res.redirect('/');
+});
 
 router.post('/login', (req: RequestWithBody, res: Response): void => {
   const { email, password } = req.body;
