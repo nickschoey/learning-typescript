@@ -1,16 +1,16 @@
 class Boat {
   color: string = 'red';
 
-  @testDecorator
+  @logError
   pilot(): void {
-    console.log('swishh');
+    throw new Error();
   }
   get formattedColor(): string {
     return `The color is ${this.color}`;
   }
 }
 
-function testDecorator(target: any, key: string): void {
+function logError(target: any, key: string, desc: PropertyDescriptor): void {
   console.log('Target:', target);
   console.log('Key:', key);
 }
