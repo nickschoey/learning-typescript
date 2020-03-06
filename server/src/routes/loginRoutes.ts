@@ -73,3 +73,9 @@ router.get('/protected', requireAuth, (req: Request, res: Response): void => {
 });
 
 export { router };
+
+function post(routeName: string) {
+  return function(target: any, key: string, desc: PropertyDescriptor) {
+    router.post(routeName, target[key]);
+  };
+}
