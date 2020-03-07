@@ -1,8 +1,14 @@
-import { Response, Request } from 'express';
-import { get, controller } from './decorators';
+import { Response, Request, NextFunction } from 'express';
+import { get, controller, use } from './decorators';
+
+function logger(req: Request, res: Response, next: NextFunction) {
+  console.log('Request!');
+  next();
+}
 
 @controller('/auth')
 class LoginController {
+  @use(logger)
   @get('/login')
   getLogin(req: Request, res: Response): void {
     res.send(`

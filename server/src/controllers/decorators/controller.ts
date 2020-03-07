@@ -14,12 +14,13 @@ export function controller(routePrefix: string) {
         key
       );
       const method: Methods = Reflect.getMetadata(
-        'method',
+        MetadataKeys.method,
         target.prototype,
         key
       );
       const middlewares =
-        Reflect.getMetadata(MetadataKeys.middleware, target, key) || [];
+        Reflect.getMetadata(MetadataKeys.middleware, target.prototype, key) ||
+        [];
 
       if (path) {
         router[method](`${routePrefix}${path}`, middlewares, routeHandler);
